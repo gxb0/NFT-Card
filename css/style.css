@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
+:root{
+    --very-dark-blue-line: #2E405A;
+}
+
 body{
     display: flex;
     justify-content: center;
@@ -9,7 +13,7 @@ body{
     background-color: #0D192C;
 }
 
-.rectangle{
+.rectangle{ /* contiene todo el contenido*/
     display: flex;
     align-items: center;
     width: 21.875rem;
@@ -21,32 +25,77 @@ body{
     flex-direction: column;
 }
 
-.rectangle img {
+.img-info{
     display: flex;
-    width: 18.875rem;
-    height: 18.875rem;
-    flex-shrink: 0;
-    border-radius: 0.5rem;
+    background-size: cover;
     margin-top: 1.5rem;
-    
+    justify-content: center;
+    align-items: center;
+    width: 18.890rem;
+    height: 18.890rem;
+    border-radius: 0.5rem;
+}
+
+.img-info:hover{
+    background: #00FFF8;
+}
+.frente{
+    display: flex;
+    width: 18.890rem;
+    height: 18.890rem;
+    z-index: 1;
+    border-radius: 0.5rem;
+}
+
+.frente:hover{
+    opacity: .6;
+    z-index: 0;
+    border-radius: 0.5rem;
+    background: #00FFF8;
+    cursor: pointer;
+}
+
+.fondo{
+    display: flex;
+    position: absolute;
+    z-index: 0;
+    border-radius: 0.5rem;
     
 }
 
-.rectangle h3{
-    width: 18.875rem;
+.fondo:hover{
+    display: flex;
+    opacity: .6;
+    z-index: 1;
+    border-radius: 0.5rem;
+    cursor: pointer;   
+}
+
+.texto{
+    display: flex;
+    width: 18.890rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+    
+}
+.texto h3{
+    width: 18.875rem;
     color: var(--White, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
     font-family: 'Outfit', sans-serif;
     font-size: 1.375rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    font-feature-settings: 'clig' off, 'liga' off;
 }
 
-.rectangle p{
+.texto h3:hover{
+    color: #00FFF8;
+    cursor: pointer;
+}
+
+.texto p{
     width: 18.875rem;
-    margin-top: 1em;
     color: var(--Soft-Blue, #8BACD9);
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: 'Outfit', sans-serif;
@@ -54,29 +103,27 @@ body{
     font-style: normal;
     font-weight: 300;
     line-height: 1.625rem;
+    margin-top: 1rem;
 }
 
-.info-eth {
-    display: inline-flex;
+.icon-and-text{
+    display: flex;
+    align-items: center;
+    /*width: 18.875rem;*/
     width: 18.8125rem;
     height: 1.25rem;
     flex-shrink: 0;
-    padding-right: 0px;
-    justify-content: center;
-    align-items: flex-start;
     gap: 0.40531rem;
+    justify-content: space-between;
     margin-top: 1.5rem;
-
-}
-.info-eth img{
-    margin: 0;
-    width: 0.6875rem;
-    height: 1.125rem;
 }
 
+.eth-text{
+    display: flex;
+    gap: 0.40531rem;
+}
 
-.info-eth p {
-    margin: 0;
+.eth-text p{
     color: var(--Cyan, #00FFF8);
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: 'Outfit', sans-serif;
@@ -86,21 +133,79 @@ body{
     line-height: normal;
 }
 
-.info-eth .clock{
+.clock-text{
+    display: flex;
+    gap: 0.40531rem;
+    align-items: center;
+}
+#clock{
     width: 1rem;
     height: 1rem;
     flex-shrink: 0;
 }
 
-.info-eth .days{
-    height: 1.25rem;
-    width: 4.5625rem;
-    font-family: 'Outfit', sans-serif;
+#text-clock{
+    align-items: center;
     color: var(--Soft-Blue, #8BACD9);
     font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Outfit', sans-serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
+hr{
+    margin-top: 1.5rem;
+    width: 18.875rem;
+    height: 0.0625rem;
+    background: var(--very-dark-blue-line);
+    border: none;
+
+}
+
+.creator{
+    display: flex;
+    width: 18.875rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.creator img{
+    width: 2.0625rem;
+    height: 2.0625rem;
+    flex-shrink: 0;
+    border-radius: 2.0625rem;
+    border: 1px solid var(--White, #FFF);
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    }
+
+.creator p:nth-child(2){
+    color: var(--Soft-Blue, #8BACD9);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Caption */
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 1rem;
+}
+
+.creator p{
+    color: var(--White, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Caption */
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 0.3rem;
+}
+
+.creator p:hover{
+    color: var(--Cyan, #00FFF8);
+    cursor: pointer;
+
+}
